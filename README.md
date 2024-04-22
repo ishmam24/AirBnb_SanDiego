@@ -1,42 +1,41 @@
 # Predicting AirBnb Prices in San Diego using Machine Learning
-This repository contains the data pre-processing pipeline of the AIrBnb listings on San Diego. We use multiple Machine Learning algorithms to analyze the data and draw conclusions from our findings. 
+This repository encompasses the data preprocessing pipeline for analyzing Airbnb listings in San Diego. Leveraging various machine learning algorithms, we aim to derive insights and facilitate informed pricing decisions for hosts.
 
 ## Background on Project:
 
-AirBnb has gained popularity over the past decade and the vacation-rental company has allowed both guests and hosts to interact seemlessly and provide an excellant opportunity for vacation-goers to break out of staying in traditional hotels and get a more urban experience during their holidays. It has also allowed hosts to utilize their wonderful homes - with the typical US host earning over $14,000 USD a year. AirBnb has become the leader in the vacation rental industries and is now facing stern competitions from their competitors from travel websites such as hotels.com and Expedia. 
+Over the past decade, Airbnb has revolutionized the vacation rental industry, providing both guests and hosts with a seamless platform for accommodation. This has offered vacation-goers a chance to embrace urban living during their holidays and enabled hosts to monetize their properties, with the average US host earning over $14,000 USD annually. While Airbnb continues to lead the vacation rental market, it faces increasing competition from travel websites such as hotels.com and Expedia.
 
-We identified a problem that AirBnb hosts face when deciding what price to set for their homes. These values are dependent on a variety of parameters: weekday, weekend, public holiday, increased demand due to special occasions etc. In this project, we take a look at the AirBnb housing prices of San Diego and provide actionable insights for hosts on pricing their listings
+Identifying a common challenge faced by Airbnb hosts in determining optimal pricing for their properties, we focus on analyzing Airbnb housing prices in San Diego. Our goal is to provide actionable insights to hosts for effectively pricing their listings.
 
 <img width="851" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/8955f7f6-b894-434a-8060-784a7e4551d8">
 
-Our fundamental approach centered around preprocessing the data and finding the relevant instances to base our model on. Next, we explored the processed data against the following Machine Learning models:
+Our approach involves preprocessing the data and selecting relevant instances to build our model. Subsequently, we explore the processed data using various machine learning models, including:
 - Linear Regression
 - Neural Networks
 - XGBoost
 - Random Forest
 - Support Vector Regression (SVR)
 
-## Pre-processing the Data:
+## Data Preprocessing:
 
-As with any machine learning project, the fundamental aspect of the project involves Data Collection and cleaning. We sourced our data from Data.world and included approximately 13k listings from August 2019. Each listing had 74 features which included price, bedrooms, bathrooms, location etc. In cleaning the data, we first dropped NLP columns such as Description, Summary, notes and listing URL. Next we dropped host details columns such as Host Name, Host About, Host Id etc. Additionally, we also dropped all location columns (such as city, state and zip code) except latitude and longitude. 
+As with any machine learning project, data collection and cleaning are fundamental. We obtained our data from Data.world, comprising approximately 13k listings from August 2019. Each listing included 74 features such as price, bedrooms, bathrooms, and location.
 
-We also had data entries that had missing values. We addressed that by inputting missing values based using relevant approaches (Boolean values of missing data were inputed as False, Missing values in numerical columns were inputed using a KNN imputer - mainly on listing data). Missing Data in categorical columns was kept as a category that was then one-hot encoded.
+In the data cleaning phase, we initially removed non-essential columns such as NLP-related columns (Description, Summary, notes, listing URL) and host details columns (Host Name, Host About, Host Id). Additionally, we dropped redundant location columns, retaining only latitude and longitude.
 
-The source data also had few outliers that were skewing the representation of the dataset. We dropped the following types of listings:
-- Homes that were never booked (number_of_stays=0)
-- Nightly price equal to price per stay and over 3000
-- Applied winsorization - capping values at the 95th percentile to ensure robustness in data analysis.
+Addressing missing values, we employed appropriate techniques: boolean values of missing data were set to False, missing values in numerical columns were imputed using a KNN imputer, and missing data in categorical columns were kept as a separate category and one-hot encoded.
 
-Finally, we applied Normalization to the data to bring all features to a similar scale. This is crucial when features have different units or scales. Without normalization, features with larger scales can dominate and bias the learning algorithm towards them.
+To handle outliers, we excluded listings meeting specific criteria, such as homes with zero bookings, nightly prices exceeding 3000, and applied winsorization by capping values at the 95th percentile.
+
+Finally, we normalized the data to ensure all features were on a similar scale, essential for unbiased learning algorithms.
 
 ## Model Training
-We trained each respective model and compared its Root Mean Squared Error between the training and test datasets. The results were quite similar - with each model's data being within 10% variance. 
+We trained each model and evaluated their performance by comparing Root Mean Squared Error (RMSE) between training and test datasets. The results demonstrated consistent performance across models, with variances within 10%.
 ****<img width="634" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/c2c29e93-a53e-4867-acb0-8caec2a87458">
 
 <img width="786" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/ad4746de-d2d0-4d8f-a529-a349f4e1e6b2">
 
 ## Results
-We learned very quickly that the data is primary and the model is secondary. A vast majority of our effor was centered around discussion on how to best process the relevant data, how to deal with outliers and how to drop irrelevant features. Data cleaning and Model training is an iterative process and we believe we can improve the results of our data by going back to the data processing and find ways to improve our data pre-processing pipeline. 
+Our project underscored the significance of data preprocessing in model performance. We observed that a substantial portion of our efforts revolved around optimizing data processing, handling outliers, and selecting relevant features. Recognizing data cleaning and model training as iterative processes, we aim to refine our data preprocessing pipeline to enhance model predictions further.
 
-Additionally, we can include multiple cities in our data set. Currently, we only focused on a relatively small sample size from August 2019 for San Diego. Our next goal is to introduce data from other months in 2019 and draw up our models to improve our predictions of AirBnB home prices for San Diego in 2019. 
+Moving forward, we intend to expand our dataset to include multiple cities beyond San Diego and encompass data from various months in 2019. This expansion will enable us to refine our models and improve predictions of Airbnb home prices for San Diego in 2019.
 
