@@ -29,8 +29,9 @@ To handle outliers, we excluded listings meeting specific criteria, such as home
 Finally, we normalized the data to ensure all features were on a similar scale, essential for unbiased learning algorithms.
 
 ## Model Training
-We trained each model and evaluated their performance by comparing Root Mean Squared Error (RMSE) between training and test datasets. The results demonstrated consistent performance across models, with variances within 10%.
-****<img width="634" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/c2c29e93-a53e-4867-acb0-8caec2a87458">
+We trained each model and evaluated their performance by comparing Root Mean Squared Error (RMSE) between training and test datasets. The results demonstrated consistent performance across models with variances within 10%.
+
+<img width="634" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/c2c29e93-a53e-4867-acb0-8caec2a87458">
 
 <img width="786" alt="image" src="https://github.com/ishmam24/AirBnb_SanDiego/assets/33576600/ad4746de-d2d0-4d8f-a529-a349f4e1e6b2">
 
